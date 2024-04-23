@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: cloud-streams-mq-producer
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      function:
+        definition: slowSource
+      bindings:
+        slowSource-out-0:
+          destination: slow-topic
+      poller:
+        fixed-delay: 2000

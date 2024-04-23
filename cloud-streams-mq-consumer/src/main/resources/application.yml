@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: cloud-streams-mq-consumer
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      function:
+        definition: slowSink
+      bindings:
+        slowSink-in-0:
+          destination: slow-topic
+
+server:
+  port: 8081
